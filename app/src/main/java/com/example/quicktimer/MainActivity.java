@@ -16,7 +16,35 @@ public class MainActivity extends AppCompatActivity {
 
     public void startTimer5(View view){
         Intent intent = new Intent(this, TimerActivity.class);
-        int length = 5; //in minutes
+        int length = 5;
+        intent.putExtra(LENGTH, length);
+        startActivity(intent);
+    }
+
+    public void startTimer10(View view){
+        Intent intent = new Intent(this, TimerActivity.class);
+        int length = 10;
+        intent.putExtra(LENGTH, length);
+        startActivity(intent);
+    }
+
+    public void startTimer30(View view){
+        Intent intent = new Intent(this, TimerActivity.class);
+        int length = 30;
+        intent.putExtra(LENGTH, length);
+        startActivity(intent);
+    }
+
+    public void startTimer45(View view){
+        Intent intent = new Intent(this, TimerActivity.class);
+        int length = 45;
+        intent.putExtra(LENGTH, length);
+        startActivity(intent);
+    }
+
+    public void startTimer60(View view){
+        Intent intent = new Intent(this, TimerActivity.class);
+        int length = 60;
         intent.putExtra(LENGTH, length);
         startActivity(intent);
     }
