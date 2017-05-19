@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">QuickTimer</string>
-    <string name="five_minutes">5 minutes</string>
     <string name="instructions">Instructions: Press button and enjoy.</string>
 </resources>
