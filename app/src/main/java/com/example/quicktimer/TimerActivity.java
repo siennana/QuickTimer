@@ -20,7 +20,6 @@ public class TimerActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int minutes = intent.getIntExtra(MainActivity.LENGTH, 0);
         long seconds = (long) minutes * 60;
-        seconds = 3; //TODO: Remove
         long milliseconds = seconds * 1000;
 
         // create the vibrator
