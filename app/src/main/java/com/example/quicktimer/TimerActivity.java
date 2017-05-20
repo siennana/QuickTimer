@@ -1,6 +1,7 @@
 package com.example.quicktimer;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -16,10 +17,32 @@ public class TimerActivity extends AppCompatActivity {
 
         // get the intent that started this
         Intent intent = getIntent();
-        int length = intent.getIntExtra(MainActivity.LENGTH, 0);
+        int minutes = intent.getIntExtra(MainActivity.LENGTH, 0);
+        long seconds = (long) minutes * 60;
+        long milliseconds = seconds * 1000;
 
         // get the timer textview, set what it should say
-        TextView textView = (TextView) findViewById(textViewTimer);
-        textView.setText("Length is " + length + ".");
+        final TextView textView = (TextView) findViewById(textViewTimer);
+
+        // create the countdown timer
+        CountDownTimer countDownTimer = new CountDownTimer(milliseconds, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                textView.setText(formatTime(millisUntilFinished));
+            }
+
+            @Override
+            public void onFinish() {
+                textView.setText("Countdown over!!!");
+            }
+        }.start();
+
+    }
+
+    protected String formatTime(long milliseconds){
+        long totalSeconds = milliseconds / 1000;
+        int dispMinutes = (int) totalSeconds / 60;
+        int dispSeconds = (int) totalSeconds % 60;
+        return String.format("%d:%02d", dispMinutes, dispSeconds);
     }
 }
