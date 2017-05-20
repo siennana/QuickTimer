@@ -25,7 +25,7 @@ public class TimerActivity extends AppCompatActivity {
         final TextView textView = (TextView) findViewById(textViewTimer);
 
         // create the countdown timer
-        CountDownTimer countDownTimer = new CountDownTimer(milliseconds, 1000) {
+        CountDownTimer countDownTimer = new CountDownTimer(milliseconds, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
                 textView.setText(formatTime(millisUntilFinished));
