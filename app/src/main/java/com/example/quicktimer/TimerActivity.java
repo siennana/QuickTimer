@@ -5,11 +5,16 @@ import android.os.CountDownTimer;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import static com.example.quicktimer.R.id.textViewTimer;
 
 public class TimerActivity extends AppCompatActivity {
+
+    // timer and vibrator for managing the activity
+    CountDownTimer countDownTimer;
+    Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +28,13 @@ public class TimerActivity extends AppCompatActivity {
         long milliseconds = seconds * 1000;
 
         // create the vibrator
-        final Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 
         // get the timer textview, set what it should say
         final TextView textView = (TextView) findViewById(textViewTimer);
 
         // create the countdown timer
-        CountDownTimer countDownTimer = new CountDownTimer(milliseconds, 100) {
+        countDownTimer = new CountDownTimer(milliseconds, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
                 textView.setText(formatTime(millisUntilFinished));
@@ -39,14 +44,25 @@ public class TimerActivity extends AppCompatActivity {
             public void onFinish() {
                 textView.setText("Countdown over!!!");
 
-                // vibrate
                 // vibration will start with no delay, go for 500 milliseconds, pause for 800
                 // milliseconds, and so on for five times
                 long [] vibratePattern = {0, 500, 800, 500, 800, 500, 800, 500, 800, 500};
                 vibrator.vibrate(vibratePattern, -1);
             }
-        }.start();
+        };
+        countDownTimer.start();
 
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+
+        // cancel the countdown timer
+        countDownTimer.cancel();
+
+        // stop the vibration if it is happening
+        vibrator.cancel();
     }
 
     protected String formatTime(long milliseconds){
