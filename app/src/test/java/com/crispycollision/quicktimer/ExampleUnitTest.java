@@ -1,4 +1,4 @@
-package com.example.quicktimer;
+package com.crispycollision.quicktimer;
 
 import org.junit.Test;
 

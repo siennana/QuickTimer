@@ -1,4 +1,4 @@
-package com.example.quicktimer;
+package com.crispycollision.quicktimer;
 
 import android.app.NotificationManager;
 import android.content.Intent;
@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String LENGTH = "com.example.quicktimer.LENGTH";
+    public static final String LENGTH = "com.crispycollision.quicktimer.LENGTH";
 
     // the notification manager for this app
     public static NotificationManager mNotifyMgr;

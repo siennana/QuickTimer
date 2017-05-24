@@ -1,4 +1,4 @@
-package com.example.quicktimer;
+package com.crispycollision.quicktimer;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,11 +9,10 @@ import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.example.quicktimer.R.id.textViewTimer;
+import static com.crispycollision.quicktimer.R.id.textViewTimer;
 
 public class TimerActivity extends AppCompatActivity {
     // keeps track of whether countdown successfully completed
