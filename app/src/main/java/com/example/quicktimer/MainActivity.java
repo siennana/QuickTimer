@@ -1,6 +1,8 @@
 package com.example.quicktimer;
 
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,10 +10,26 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
     public static final String LENGTH = "com.example.quicktimer.LENGTH";
 
+    // the notification manager for this app
+    public static NotificationManager mNotifyMgr;
+
+    // manages the vibrator
+    public static Vibrator vibrator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // cancel all notifications
+        if(mNotifyMgr != null) {
+            mNotifyMgr.cancelAll();
+        }
+
+        // cancel any ongoing vibration
+        if(vibrator != null){
+            vibrator.cancel();
+        }
     }
 
     public void startTimer5(View view){
