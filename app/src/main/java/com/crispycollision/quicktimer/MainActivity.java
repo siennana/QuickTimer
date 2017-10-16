@@ -10,10 +10,10 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
     public static final String LENGTH = "com.crispycollision.quicktimer.LENGTH";
 
-    // the notification manager for this app
+    // app notification manager
     public static NotificationManager mNotifyMgr;
 
-    // manages the vibrator
+    // app vibrator
     public static Vibrator vibrator;
 
     @Override
