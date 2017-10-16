@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void startTimer5(View view){
         Intent intent = new Intent(this, TimerActivity.class);
-        int length = 5;
+        int length = 1;
         intent.putExtra(LENGTH, length);
         startActivity(intent);
     }
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void startTimer60(View view){
         Intent intent = new Intent(this, TimerActivity.class);
-        int length = 60;
+        int length = 50;
         intent.putExtra(LENGTH, length);
         startActivity(intent);
     }
