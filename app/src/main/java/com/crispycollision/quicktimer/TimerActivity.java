@@ -61,7 +61,7 @@ public class TimerActivity extends AppCompatActivity {
 
         mBuilder.setContentIntent(resultPendingIntent);
 
-        // create the countdown timer
+        // create countdown timer
         countDownTimer = new CountDownTimer(milliseconds, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
