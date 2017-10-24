@@ -60,10 +60,24 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void startTimer60(View view){
+    public void startTimer50(View view){
         Intent intent = new Intent(this, TimerActivity.class);
         int length = 50;
         intent.putExtra(LENGTH, length);
         startActivity(intent);
     }
+
+    public void startTimer60(View view){
+        Intent intent = new Intent(this, TimerActivity.class);
+        int length = 60;
+        intent.putExtra(LENGTH, length);
+        startActivity(intent);
+    }
+
+    /*public void customTimer(View view, int l){
+        Intent intent = new Intent(this, TimerActivity.class);
+        int length = l;
+        intent.putExtra(LENGTH, length);
+        startActivity(intent);
+    }*/
 }
